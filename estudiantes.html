@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estudiantes</title>
+    <style>
+      /* Estilos para las cartas de los estudiantes */
+      .student-card {
+        background-color: #F5F5DC;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+        width: 200px;
+        height: 100px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Estudiantes</h1>
+    <div id="students-container"></div>
+  </body>
+
+  <script>
+
+      const studentsList = [
+        {
+          name: 'Jose',
+          age: 21
+        },
+        {
+          name: 'Zoe',
+          age: 33
+        },
+        {
+          name: 'Alicia',
+          age: 19
+        },
+        {
+          name: 'Pablo',
+          age: 45
+        },
+        {
+          name: 'Pedro',
+          age: 18
+        }
+      ];
+
+      // LISTA DE ESTUDIANTES POR EDAD
+      studentsList.sort((a, b) => b.age - a.age);
+
+      // MUESTRA LAS CARTAS
+      const container = document.getElementById("students-container");
+
+      // RECORRE LISTA PARA CREAR CARTAS
+      for (let student of studentsList) {
+        // creando un elemento div para la carta
+        let card = document.createElement("div");
+        card.classList.add("student-card");
+
+        // NOMBRE DEL ESTUDIANTE
+        let name = document.createElement("p");
+        name.innerHTML = student.name;
+
+        // EDAD DEL ESTUDIANTE
+        let age = document.createElement("p");
+        age.innerHTML = student.age;
+
+        // NOMBRE Y EDAD
+        card.appendChild(name);
+        card.appendChild(age);
+
+        // AGREGAR CARTA
+        container.appendChild(card);
+      }
+   </script>
